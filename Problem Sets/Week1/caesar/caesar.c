@@ -21,6 +21,7 @@ int main(int argc, string argv[])
   int key = atoi(k);
   string plaintext = get_string("plaintext: ");
 
+  printf("ciphertext: ");
   // loop over each letter in plaintext and transform accordingly
   for (int i = 0, n = strlen(plaintext); i < n; i++)
   {

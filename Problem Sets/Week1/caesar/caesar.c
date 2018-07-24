@@ -7,6 +7,8 @@
 #include <ctype.h>
 #include <string.h>
 
+int alphabet_to_value(char c);
+
 int main(int argc, string argv[])
 {
   // make sure it has exactly two arguments
@@ -17,7 +19,6 @@ int main(int argc, string argv[])
   }
   string k = argv[1];
   int key = atoi(k);
-  printf("%i", key);
   string plaintext = get_string("plaintext: ");
 
   // loop over each letter in plaintext and transform accordingly
@@ -25,7 +26,18 @@ int main(int argc, string argv[])
   {
     if(isalpha(plaintext[i]))
     {
-      printf("x");
+      int value_of_plaintext = alphabet_to_value(tolower(plaintext[i]));
+      // generate value of ciphertext
+      int ciphertext_value = (value_of_plaintext + key) % 26;
+
+      // change ciphertext value to original letter using ascii
+      if (isupper(plaintext[i]))
+      {
+          printf("%c", ciphertext_value + 65);
+      }
+      else {
+          printf("%c", ciphertext_value + 97);
+      }
     }
     else
     {
@@ -71,5 +83,6 @@ int alphabet_to_value(char c)
     default: return -1;
   }
 }
+
 
 

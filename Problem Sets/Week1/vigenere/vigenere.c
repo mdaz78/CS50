@@ -52,6 +52,10 @@ void cipher(string plaintext, string key)
         printf("%c", 97 + ciphered_value);
       }
     } 
+    else 
+    {
+      printf("%c", plaintext[i]);
+    }
   }
   printf("\n");
 }
